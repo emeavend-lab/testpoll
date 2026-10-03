@@ -1,5 +1,5 @@
 let currentStep = 1;
-const totalSteps = 6;
+const totalSteps = 7;
 
 
 const prevBtn = document.getElementById('prev-btn');
