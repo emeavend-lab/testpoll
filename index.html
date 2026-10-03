@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test de Personalidad Definitivo</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background-color: #f4f7f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+    .quiz-container {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      max-width: 600px;
+      width: 100%;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .question {
+      margin-bottom: 25px;
+    }
+    .question h3 {
+      font-size: 1.1rem;
+      color: #444;
+      margin-bottom: 12px;
+    }
+    .options label {
+      display: block;
+      background: #eef2f5;
+      padding: 10px 15px;
+      margin-bottom: 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .options label:hover {
+      background: #dce4ec;
+    }
+    .options input[type="radio"] {
+      margin-right: 10px;
+    }
+    button {
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 14px;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    #result-container {
+      display: none;
+      text-align: center;
+      padding: 20px 0;
+    }
+    #result-container h2 {
+      color: #2c3e50;
+      font-size: 1.8rem;
+    }
+    #result-container p {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.6;
+    }
+    .restart-btn {
+      background-color: #008CBA;
+      margin-top: 20px;
+    }
+    .restart-btn:hover {
+      background-color: #007bb5;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="quiz-container">
+    <div id="quiz">
+      <h1>Test de Personalidad</h1>
+      <p style="text-align: center; color: #666;">Descubre qué tipo de personalidad tienes con solo 3 preguntas.</p>
+      
+      <form id="quiz-form">
+        <!-- Pregunta 1 -->
+        <div class="question">
+          <h3>1. ¿Cómo prefieres pasar un fin de semana libre?</h3>
+          <div class="options">
+            <label><input type="radio" name="q1" value="A" required> Leyendo un libro en casa</label>
+            <label><input type="radio" name="q1" value="B"> Saliendo de fiesta con amigos</label>
+            <label><input type="radio" name="q1" value="C"> Haciendo deporte o al aire libre</label>
+          </div>
+        </div>
+
+        <!-- Pregunta 2 -->
+        <div class="question">
+          <h3>2. Ante un problema difícil, tú suelo...</h3>
+          <div class="options">
+            <label><input type="radio" name="q2" value="A" required> Analizar detalladamente cada opción</label>
+            <label><input type="radio" name="q2" value="B"> Pedir consejo a personas cercanas</label>
+            <label><input type="radio" name="q2" value="C"> Actuar por intuición rápidamente</label>
+          </div>
+        </div>
+
+        <!-- Pregunta 3 -->
+        <div class="question">
+          <h3>3. ¿Cuál de estas palabras describe mejor tus metas?</h3>
+          <div class="options">
+            <label><input type="radio" name="q3" value="A" required> Tranquilidad</label>
+            <label><input type="radio" name="q3" value="B"> Éxito y reconocimiento</label>
+            <label><input type="radio" name="q3" value="C"> Aventura y descubrimiento</label>
+          </div>
+        </div>
+
+        <button type="submit">Ver Resultado</button>
+      </form>
+    </div>
+
+    <!-- Pantalla de Resultado Fijo -->
+    <div id="result-container">
+      <h2 id="result-title">✨ ¡Tu Personalidad es: EL SOÑADOR CREATIVO! ✨</h2>
+      <p id="result-description">
+        Eres una persona excepcionalmente única, con una gran capacidad para adaptarte a cualquier entorno. Destacas por tu empatía, tu curiosidad insaciable y tu habilidad para encontrar belleza en los detalles más pequeños del día a día. ¡Sigue brillando como siempre!
+      </p>
+      <button class="restart-btn" onclick="location.reload()">Repetir Test</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
