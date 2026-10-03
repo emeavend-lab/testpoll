@@ -1,6 +1,5 @@
 let currentStep = 1;
-const totalSteps = 7;
-
+const totalSteps = 9; // <--- Cambiado a 9
 
 const prevBtn = document.getElementById('prev-btn');
 const nextBtn = document.getElementById('next-btn');
@@ -68,7 +67,7 @@ nextBtn.addEventListener('click', () => {
     currentStep++;
     updateStepView();
   } else {
-    // Si estamos en la última pregunta, mostramos el resultado fijo
+    // Si estamos en la última pregunta, mostramos el resultado
     quizWrapper.style.display = 'none';
     resultContainer.style.display = 'block';
   }
