@@ -39,10 +39,10 @@
       font-weight: bold;
     }
     .question-step {
-      display: none; /* Se ocultan por defecto */
+      display: none;
     }
     .question-step.active {
-      display: block; /* Solo se muestra la pregunta activa */
+      display: block;
     }
     .question-step h3 {
       font-size: 1.2rem;
@@ -65,7 +65,6 @@
     .options input[type="radio"] {
       margin-right: 10px;
     }
-    /* Estilo para opción seleccionada */
     .options label.selected {
       background: #e3f2fd;
       border-color: #2196F3;
@@ -112,7 +111,7 @@
       padding: 20px 0;
     }
     #result-container h2 {
-      color: #2c3e50;
+      color: #e91e63;
       font-size: 1.8rem;
     }
     #result-container p {
@@ -121,13 +120,13 @@
       line-height: 1.6;
     }
     .restart-btn {
-      background-color: #008CBA;
+      background-color: #e91e63;
       color: white;
       margin-top: 20px;
       width: 100%;
     }
     .restart-btn:hover {
-      background-color: #007bb5;
+      background-color: #c2185b;
     }
   </style>
 </head>
@@ -136,7 +135,7 @@
   <div class="quiz-container">
     <div id="quiz-wrapper">
       <h1>Test de Personalidad</h1>
-      <div class="progress-bar" id="progress-bar"> Pregunta 1 de 7 </div>
+      <div class="progress-bar" id="progress-bar">Pregunta 1 de 9</div>
       
       <form id="quiz-form">
         <!-- Pregunta 1 -->
@@ -144,29 +143,29 @@
           <h3>1. Ante una cita ¿Qué prefieres comer?</h3>
           <div class="options">
             <label><input type="radio" name="q1" value="pizza"> Pizza</label>
-            <label><input type="radio" name="q1" value="papa"> Papas</label>
+            <label><input type="radio" name="q1" value="papas"> Papas</label>
             <label><input type="radio" name="q1" value="hamburguesa"> Hamburguesa</label>
           </div>
         </div>
 
         <!-- Pregunta 2 -->
         <div class="question-step" data-step="2">
-          <h3>2. ¿Cual es tu tipo de persona?</h3>
+          <h3>2. ¿Cuál es tu tipo de persona?</h3>
           <div class="options">
-            <label><input type="radio" name="q2" value="soleado"> Callado y tímido</label>
-            <label><input type="radio" name="q2" value="lluvioso"> Atento y Servicial</label>
-            <label><input type="radio" name="q2" value="frio"> Alegre y energético</label>
+            <label><input type="radio" name="q2" value="callado"> Callado y tímido</label>
+            <label><input type="radio" name="q2" value="atento"> Atento y Servicial</label>
+            <label><input type="radio" name="q2" value="energetico"> Alegre y energético</label>
           </div>
         </div>
 
         <!-- Pregunta 3 -->
         <div class="question-step" data-step="3">
-          <h3>3. ¿Si te lanzan un cumplido cual es tu reacción?</h3>
+          <h3>3. ¿Si te lanzan un cumplido cuál es tu reacción?</h3>
           <div class="options">
-            <label><input type="radio" name="q3" value="series"> Me sonrojo y le regreso el cumplido</label>
-            <label><input type="radio" name="q3" value="amigos"> Me cuestiono si lo dice en serio</label>
-            <label><input type="radio" name="q3" value="dormir"> No sé como reaccionar</label>
-            <label><input type="radio" name="q3" value="dormir"> Los cumplidos no tienen efecto en mí</label>
+            <label><input type="radio" name="q3" value="sonrojo"> Me sonrojo y le regreso el cumplido</label>
+            <label><input type="radio" name="q3" value="cuestiono"> Me cuestiono si lo dice en serio</label>
+            <label><input type="radio" name="q3" value="no_se"> No sé cómo reaccionar</label>
+            <label><input type="radio" name="q3" value="sin_efecto"> Los cumplidos no tienen efecto en mí</label>
           </div>
         </div>
 
@@ -174,38 +173,59 @@
         <div class="question-step" data-step="4">
           <h3>4. ¿Estás consciente de que eres hermosa, verdad?</h3>
           <div class="options">
-            <label><input type="radio" name="q4" value="volar"> Sí</label>
-            <label><input type="radio" name="q4" value="invisible"> Totalmente</label>
-            <label><input type="radio" name="q4" value="mente"> Huh?</label>
+            <label><input type="radio" name="q4" value="si"> Sí</label>
+            <label><input type="radio" name="q4" value="totalmente"> Totalmente</label>
+            <label><input type="radio" name="q4" value="huh"> Huh?</label>
           </div>
         </div>
 
         <!-- Pregunta 5 -->
         <div class="question-step" data-step="5">
-          <h3>5. ¿Tienes idea de cuanto me encantas y de lo enamorado que estoy de ti?</h3>
+          <h3>5. ¿Tienes idea de cuánto me encantas y de lo enamorado que estoy de ti?</h3>
           <div class="options">
-            <label><input type="radio" name="q5" value="playa"> Sí</label>
-            <label><input type="radio" name="q5" value="montana"> No</label>
-            <label><input type="radio" name="q5" value="ciudad"> Tal vez</label>
+            <label><input type="radio" name="q5" value="si"> Sí</label>
+            <label><input type="radio" name="q5" value="no"> No</label>
+            <label><input type="radio" name="q5" value="tal_vez"> Tal vez</label>
           </div>
         </div>
 
         <!-- Pregunta 6 -->
         <div class="question-step" data-step="6">
-          <h3>6. Quizás no fue la manera mas adecuada de decirte que seas mi pareja, por eso quiero tomármelo en serio</h3>
+          <h3>6. Quizás no fue la manera más adecuada de decirte que seas mi pareja, por eso quiero tomármelo en serio</h3>
           <div class="options">
-            <label><input type="radio" name="q6" value="manana"> Sí, no fue la adecuada</label>
-            <label><input type="radio" name="q6" value="tarde"> Para nada, que te pasa</label>
-            <label><input type="radio" name="q6" value="noche"> Pasado de skibidi eh</label>
+            <label><input type="radio" name="q6" value="no_adecuada"> Sí, no fue la adecuada</label>
+            <label><input type="radio" name="q6" value="para_nada"> Para nada, qué te pasa</label>
+            <label><input type="radio" name="q6" value="skibidi"> Pasado de skibidi eh</label>
           </div>
         </div>
 
-         <div class="question-step" data-step="7">
-          <h3>6. Quizás no fue la manera mas adecuada de decirte que seas mi pareja, por eso quiero tomármelo en serio</h3>
+        <!-- Pregunta 7 -->
+        <div class="question-step" data-step="7">
+          <h3>7. Escribe tu pregunta 7 aquí...</h3>
           <div class="options">
-            <label><input type="radio" name="q7" value="1"> Sí, no fue la adecuada</label>
-            <label><input type="radio" name="q7" value="2"> Para nada, que te pasa</label>
-            <label><input type="radio" name="q7" value="3"> Pasado de skibidi eh</label>
+            <label><input type="radio" name="q7" value="opcion1"> Opción 1</label>
+            <label><input type="radio" name="q7" value="opcion2"> Opción 2</label>
+            <label><input type="radio" name="q7" value="opcion3"> Opción 3</label>
+          </div>
+        </div>
+
+        <!-- Pregunta 8 -->
+        <div class="question-step" data-step="8">
+          <h3>8. Escribe tu pregunta 8 aquí...</h3>
+          <div class="options">
+            <label><input type="radio" name="q8" value="opcion1"> Opción 1</label>
+            <label><input type="radio" name="q8" value="opcion2"> Opción 2</label>
+            <label><input type="radio" name="q8" value="opcion3"> Opción 3</label>
+          </div>
+        </div>
+
+        <!-- Pregunta 9 -->
+        <div class="question-step" data-step="9">
+          <h3>9. Escribe tu pregunta 9 aquí...</h3>
+          <div class="options">
+            <label><input type="radio" name="q9" value="opcion1"> Opción 1</label>
+            <label><input type="radio" name="q9" value="opcion2"> Opción 2</label>
+            <label><input type="radio" name="q9" value="opcion3"> Opción 3</label>
           </div>
         </div>
         
@@ -219,9 +239,9 @@
 
     <!-- Resultado Fijo -->
     <div id="result-container">
-      <h2>✨ ¡Tu Personalidad es: EL ALMA LIBRE! ✨</h2>
+      <h2>✨ Escribe aquí tu título final ✨</h2>
       <p>
-        Tus respuestas reflejan a una persona con una intuición increíble, equilibrio interno y una perspectiva única de la vida. Te adaptas fácilmente a cualquier situación y sabes disfrutar de las pequeñas cosas. ¡Nunca cambies tu esencia!
+        Escribe aquí tu mensaje final que se mostrará al responder la pregunta 9...
       </p>
       <button class="restart-btn" onclick="location.reload()">Repetir Test</button>
     </div>
