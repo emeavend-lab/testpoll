@@ -624,23 +624,23 @@
           </div>
         </div>
 
-        <!-- Pregunta 9 -->
+       <!-- Pregunta 9 -->
         <div class="question-step" data-step="9">
-          <h3>9. Quieres ser mi novia?</h3>
+          <h3>9. ¿Quieres ser mi novia?</h3>
           <div class="options">
             <label>
               <div class="option-text"><span class="option-badge">A</span> Sí, me gustaría</div>
-              <input type="radio" name="q9" value="opcion1">
+              <input type="radio" name="q9" value="si">
               <span class="radio-circle"></span>
             </label>
             <label>
               <div class="option-text"><span class="option-badge">B</span> acepto</div>
-              <input type="radio" name="q9" value="opcion2">
+              <input type="radio" name="q9" value="si">
               <span class="radio-circle"></span>
             </label>
             <label>
               <div class="option-text"><span class="option-badge">C</span> No hehe</div>
-              <input type="radio" name="q9" value="opcion3">
+              <input type="radio" name="q9" value="no">
               <span class="radio-circle"></span>
             </label>
           </div>
@@ -668,11 +668,18 @@
       </ul>
     </div>
 
-    <!-- Resultado Final -->
-    <div id="result-container">
-      <h2>✨ Escribe aquí tu título final ✨</h2>
-      <p>Escribe aquí tu mensaje especial de cierre...</p>
-      <button class="restart-btn" onclick="location.reload()">Repetir Test</button>
+   <!-- Resultado Si Acepta -->
+    <div id="result-success" style="display: none; grid-column: span 2; background: white; border-radius: 16px; padding: 60px 40px; text-align: center; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);">
+      <h2>💖 ¡Me haces la persona más feliz! 💖</h2>
+      <p>Sabía que este viaje juntos apenas comienza. Prometo cuidar de ti y hacerte sonreír todos los días.</p>
+      <button class="restart-btn" onclick="location.reload()">Volver a empezar</button>
+    </div>
+
+    <!-- Resultado Si Elige "No hehe" -->
+    <div id="result-rejected" style="display: none; grid-column: span 2; background: white; border-radius: 16px; padding: 60px 40px; text-align: center; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);">
+      <h2>😅 ¿Cómo que "No hehe"?</h2>
+      <p>Esa respuesta no venía en los cálculos... ¿Estás 100% segura o fue un clic por error? Inténtalo de nuevo 😉</p>
+      <button class="restart-btn" onclick="location.reload()">Reconsiderarlo ❤️</button>
     </div>
 
   </div>
