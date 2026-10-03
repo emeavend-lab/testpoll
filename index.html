@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test de Personalidad Definitivo</title>
+  <title>Test de Personalidad</title>
   <style>
     * {
       box-sizing: border-box;
@@ -23,29 +23,41 @@
       padding: 30px;
       border-radius: 12px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      max-width: 600px;
+      max-width: 500px;
       width: 100%;
     }
     h1 {
       text-align: center;
       color: #333;
+      margin-top: 0;
     }
-    .question {
-      margin-bottom: 25px;
+    .progress-bar {
+      font-size: 0.9rem;
+      color: #666;
+      text-align: right;
+      margin-bottom: 15px;
+      font-weight: bold;
     }
-    .question h3 {
-      font-size: 1.1rem;
-      color: #444;
-      margin-bottom: 12px;
+    .question-step {
+      display: none; /* Se ocultan por defecto */
+    }
+    .question-step.active {
+      display: block; /* Solo se muestra la pregunta activa */
+    }
+    .question-step h3 {
+      font-size: 1.2rem;
+      color: #2c3e50;
+      margin-bottom: 20px;
     }
     .options label {
       display: block;
       background: #eef2f5;
-      padding: 10px 15px;
-      margin-bottom: 8px;
-      border-radius: 6px;
+      padding: 12px 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
       cursor: pointer;
-      transition: background 0.2s;
+      transition: all 0.2s ease;
+      border: 2px solid transparent;
     }
     .options label:hover {
       background: #dce4ec;
@@ -53,20 +65,46 @@
     .options input[type="radio"] {
       margin-right: 10px;
     }
+    /* Estilo para opción seleccionada */
+    .options label.selected {
+      background: #e3f2fd;
+      border-color: #2196F3;
+      font-weight: bold;
+    }
+    .buttons-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 25px;
+      gap: 10px;
+    }
     button {
-      width: 100%;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      padding: 14px;
-      font-size: 1rem;
+      flex: 1;
+      padding: 12px;
+      font-size: 0.95rem;
       border-radius: 6px;
+      border: none;
       cursor: pointer;
       font-weight: bold;
       transition: background 0.2s;
     }
-    button:hover {
+    .btn-prev {
+      background-color: #9e9e9e;
+      color: white;
+    }
+    .btn-prev:hover {
+      background-color: #757575;
+    }
+    .btn-next {
+      background-color: #4CAF50;
+      color: white;
+    }
+    .btn-next:hover {
       background-color: #45a049;
+    }
+    button:disabled {
+      background-color: #cccccc !important;
+      cursor: not-allowed;
+      opacity: 0.7;
     }
     #result-container {
       display: none;
@@ -84,7 +122,9 @@
     }
     .restart-btn {
       background-color: #008CBA;
+      color: white;
       margin-top: 20px;
+      width: 100%;
     }
     .restart-btn:hover {
       background-color: #007bb5;
@@ -94,50 +134,84 @@
 <body>
 
   <div class="quiz-container">
-    <div id="quiz">
+    <div id="quiz-wrapper">
       <h1>Test de Personalidad</h1>
-      <p style="text-align: center; color: #666;">Descubre qué tipo de personalidad tienes con solo 3 preguntas.</p>
+      <div class="progress-bar" id="progress-bar">Pregunta 1 de 6</div>
       
       <form id="quiz-form">
         <!-- Pregunta 1 -->
-        <div class="question">
-          <h3>1. ¿Cómo prefieres pasar un fin de semana libre?</h3>
+        <div class="question-step active" data-step="1">
+          <h3>1. ¿Qué prefieres comer?</h3>
           <div class="options">
-            <label><input type="radio" name="q1" value="A" required> Leyendo un libro en casa</label>
-            <label><input type="radio" name="q1" value="B"> Saliendo de fiesta con amigos</label>
-            <label><input type="radio" name="q1" value="C"> Haciendo deporte o al aire libre</label>
+            <label><input type="radio" name="q1" value="pizza"> Pizza</label>
+            <label><input type="radio" name="q1" value="papa"> Papa</label>
+            <label><input type="radio" name="q1" value="hamburguesa"> Hamburguesa</label>
           </div>
         </div>
 
         <!-- Pregunta 2 -->
-        <div class="question">
-          <h3>2. Ante un problema difícil, tú suelo...</h3>
+        <div class="question-step" data-step="2">
+          <h3>2. ¿Cuál es tu clima ideal?</h3>
           <div class="options">
-            <label><input type="radio" name="q2" value="A" required> Analizar detalladamente cada opción</label>
-            <label><input type="radio" name="q2" value="B"> Pedir consejo a personas cercanas</label>
-            <label><input type="radio" name="q2" value="C"> Actuar por intuición rápidamente</label>
+            <label><input type="radio" name="q2" value="soleado"> Día soleado y caluroso</label>
+            <label><input type="radio" name="q2" value="lluvioso"> Día lluvioso con café</label>
+            <label><input type="radio" name="q2" value="frio"> Clima templado y fresco</label>
           </div>
         </div>
 
         <!-- Pregunta 3 -->
-        <div class="question">
-          <h3>3. ¿Cuál de estas palabras describe mejor tus metas?</h3>
+        <div class="question-step" data-step="3">
+          <h3>3. ¿Cómo prefieres pasar tu tiempo libre?</h3>
           <div class="options">
-            <label><input type="radio" name="q3" value="A" required> Tranquilidad</label>
-            <label><input type="radio" name="q3" value="B"> Éxito y reconocimiento</label>
-            <label><input type="radio" name="q3" value="C"> Aventura y descubrimiento</label>
+            <label><input type="radio" name="q3" value="series"> Viendo películas o series</label>
+            <label><input type="radio" name="q3" value="amigos"> Salir a pasear con amigos</label>
+            <label><input type="radio" name="q3" value="dormir"> Durmiendo todo el día</label>
           </div>
         </div>
 
-        <button type="submit">Ver Resultado</button>
+        <!-- Pregunta 4 -->
+        <div class="question-step" data-step="4">
+          <h3>4. ¿Qué superpoder te gustaría tener?</h3>
+          <div class="options">
+            <label><input type="radio" name="q4" value="volar"> Volar</label>
+            <label><input type="radio" name="q4" value="invisible"> Ser invisible</label>
+            <label><input type="radio" name="q4" value="mente"> Leer la mente</label>
+          </div>
+        </div>
+
+        <!-- Pregunta 5 -->
+        <div class="question-step" data-step="5">
+          <h3>5. Si pudieras viajar mañana, ¿a dónde irías?</h3>
+          <div class="options">
+            <label><input type="radio" name="q5" value="playa"> Una playa paradisíaca</label>
+            <label><input type="radio" name="q5" value="montana"> Una cabaña en la montaña</label>
+            <label><input type="radio" name="q5" value="ciudad"> Una ciudad enorme y moderna</label>
+          </div>
+        </div>
+
+        <!-- Pregunta 6 -->
+        <div class="question-step" data-step="6">
+          <h3>6. ¿Cuál es tu momento favorito del día?</h3>
+          <div class="options">
+            <label><input type="radio" name="q6" value="manana"> La mañana muy temprano</label>
+            <label><input type="radio" name="q6" value="tarde"> El atardecer</label>
+            <label><input type="radio" name="q6" value="noche"> La noche alta</label>
+          </div>
+        </div>
+
+        <!-- Botones de Navegación -->
+        <div class="buttons-container">
+          <button type="button" id="prev-btn" class="btn-prev" disabled>Pregunta anterior</button>
+          <button type="button" id="next-btn" class="btn-next" disabled>Siguiente pregunta</button>
+        </div>
       </form>
     </div>
 
-    <!-- Pantalla de Resultado Fijo -->
+    <!-- Resultado Fijo -->
     <div id="result-container">
-      <h2 id="result-title">✨ ¡Tu Personalidad es: EL SOÑADOR CREATIVO! ✨</h2>
-      <p id="result-description">
-        Eres una persona excepcionalmente única, con una gran capacidad para adaptarte a cualquier entorno. Destacas por tu empatía, tu curiosidad insaciable y tu habilidad para encontrar belleza en los detalles más pequeños del día a día. ¡Sigue brillando como siempre!
+      <h2>✨ ¡Tu Personalidad es: EL ALMA LIBRE! ✨</h2>
+      <p>
+        Tus respuestas reflejan a una persona con una intuición increíble, equilibrio interno y una perspectiva única de la vida. Te adaptas fácilmente a cualquier situación y sabes disfrutar de las pequeñas cosas. ¡Nunca cambies tu esencia!
       </p>
       <button class="restart-btn" onclick="location.reload()">Repetir Test</button>
     </div>
