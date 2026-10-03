@@ -1,6 +1,7 @@
 let currentStep = 1;
 const totalSteps = 6;
 
+
 const prevBtn = document.getElementById('prev-btn');
 const nextBtn = document.getElementById('next-btn');
 const progressBar = document.getElementById('progress-bar');
