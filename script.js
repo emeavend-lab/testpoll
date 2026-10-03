@@ -5,7 +5,6 @@ const prevBtn = document.getElementById('prev-btn');
 const nextBtn = document.getElementById('next-btn');
 const progressBar = document.getElementById('progress-bar');
 const quizWrapper = document.getElementById('quiz-wrapper');
-const resultContainer = document.getElementById('result-container');
 
 // Escuchar cambios en las opciones marcadas
 document.querySelectorAll('.question-step').forEach(stepElement => {
@@ -53,15 +52,27 @@ function updateStepView() {
   }
 }
 
-// Evento Siguiente
+// Evento Siguiente / Finalizar
 nextBtn.addEventListener('click', () => {
   if (currentStep < totalSteps) {
     currentStep++;
     updateStepView();
   } else {
+    // Ocultar la tarjeta de preguntas y la barra lateral informativa
     quizWrapper.style.display = 'none';
-    document.querySelector('.sidebar-card').style.display = 'none';
-    resultContainer.style.display = 'block';
+    const sidebar = document.querySelector('.sidebar-card');
+    if (sidebar) sidebar.style.display = 'none';
+
+    // Verificar la respuesta seleccionada en la pregunta 9
+    const selectedQ9 = document.querySelector('input[name="q9"]:checked')?.value;
+
+    if (selectedQ9 === 'no') {
+      // Si elige "No hehe"
+      document.getElementById('result-rejected').style.display = 'block';
+    } else {
+      // Si elige "Sí, me gustaría" o "acepto"
+      document.getElementById('result-success').style.display = 'block';
+    }
   }
 });
 
@@ -73,5 +84,5 @@ prevBtn.addEventListener('click', () => {
   }
 });
 
-// Inicializar
+// Inicializar el test
 updateStepView();
